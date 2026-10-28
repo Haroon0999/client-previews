@@ -3,231 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fowler Painting & Handyman Services</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Fowler Painting & Handyman Services | Professional Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff}
-  
-  /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
-  nav.scrolled{background:rgba(10,10,10,.97);backdrop-filter:blur(20px);padding:14px 5%;box-shadow:0 2px 30px rgba(0,0,0,.3)}
-  .nav-logo{color:#fff;font-weight:800;font-size:1.1rem;letter-spacing:-0.5px}
-  .nav-cta{background:#1e40af;color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-weight:600;font-size:.85rem;transition:opacity .2s}
-  .nav-cta:hover{opacity:.85}
-  
-  /* HERO */
-  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
-    background:linear-gradient(135deg, #0f0c29 0%, #1a1a2e 50%, #1e40af33 100%)}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 100%)}
-  .hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:120px 5% 80px}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:500;margin-bottom:24px;backdrop-filter:blur(10px)}
-  .hero h1{font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-2px;margin-bottom:20px}
-  .hero h1 span{color:#3b82f6}
-  .hero-sub{font-size:1.1rem;color:rgba(255,255,255,.75);max-width:520px;line-height:1.7;margin-bottom:36px}
-  .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
-  .btn-primary{background:#1e40af;color:#fff;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .2s;border:none;cursor:pointer}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px #1e40af66}
-  .btn-secondary{background:transparent;color:#fff;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;border:2px solid rgba(255,255,255,.4);transition:all .2s}
-  .btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-  
-  /* TRUST BAR */
-  .trust-bar{background:#f8f8f8;border-bottom:1px solid #eee;padding:16px 5%}
-  .trust-inner{max-width:1100px;margin:0 auto;display:flex;gap:32px;flex-wrap:wrap;align-items:center}
-  .trust-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:#555;font-weight:500}
-  .trust-icon{width:20px;height:20px;background:#1e40af;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.65rem;flex-shrink:0}
-  
-  /* SERVICES */
-  .services{padding:90px 5%;background:#fff}
-  .section-header{text-align:center;max-width:600px;margin:0 auto 60px}
-  .section-tag{color:#1e40af;font-size:.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
-  .section-header h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-1px;color:#0a0a0a}
-  .services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-  .service-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden}
-  .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#1e40af;transform:scaleX(0);transition:transform .3s}
-  .service-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.08);border-color:transparent}
-  .service-card:hover::before{transform:scaleX(1)}
-  .service-num{font-size:2.5rem;font-weight:900;opacity:.15;margin-bottom:16px}
-  .service-card h3{font-size:1.15rem;font-weight:700;color:#0a0a0a;margin-bottom:10px}
-  .service-card p{font-size:.9rem;color:#666;line-height:1.7}
-  
-  /* REVIEWS */
-  .reviews-section{padding:90px 5%;background:#f8f8f8}
-  .reviews-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-  .review-card{background:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
-  .review-stars{font-size:1.1rem;margin-bottom:12px}
-  .review-text{font-size:.9rem;color:#444;line-height:1.7;margin-bottom:16px;font-style:italic}
-  .review-author{font-size:.8rem;color:#999;font-weight:600}
-  
-  /* ABOUT */
-  .about{padding:90px 5%;background:#fff}
-  .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .about-text .section-tag{text-align:left}
-  .about-text h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-1px;color:#0a0a0a;margin-bottom:20px}
-  .about-text p{font-size:1rem;color:#555;line-height:1.8;margin-bottom:28px}
-  .rating-box{background:linear-gradient(135deg,#0f0c29,#1a1a2e);color:#fff;border-radius:16px;padding:36px;text-align:center}
-  .rating-big{font-size:4rem;font-weight:900;color:#3b82f6;line-height:1}
-  .rating-label{font-size:.85rem;opacity:.7;margin-top:8px}
-  .rating-stars{color:#3b82f6;font-size:1.4rem;margin:12px 0}
-  .rating-count{font-size:.8rem;opacity:.6}
-  
-  /* MAP */
-  .map-section{padding:0}
-  .map-section iframe{width:100%;height:400px;border:none;display:block}
-  
-  /* CTA BAND */
-  .cta-band{background:linear-gradient(135deg,#1e40af,#0f0c29);padding:70px 5%;text-align:center}
-  .cta-band h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:14px}
-  .cta-band p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:32px}
-  .cta-band .btn-primary{background:#fff;color:#1e40af;font-size:1.05rem}
-  .cta-band .btn-primary:hover{box-shadow:0 8px 30px rgba(255,255,255,.3)}
-  
-  /* CONTACT */
-  .contact{padding:90px 5%;background:#f8f8f8}
-  .contact-inner{max-width:700px;margin:0 auto}
-  .contact-form{background:#fff;border-radius:16px;padding:48px;box-shadow:0 4px 40px rgba(0,0,0,.06)}
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-  .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-  .form-group label{font-size:.8rem;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.5px}
-  .form-group input,.form-group textarea,.form-group select{padding:12px 16px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:.95rem;font-family:inherit;transition:border-color .2s;color:#1a1a1a;background:#fff}
-  .form-group input:focus,.form-group textarea:focus{outline:none;border-color:#1e40af}
-  .form-group textarea{min-height:110px;resize:vertical}
-  .form-submit{width:100%;background:#1e40af;color:#fff;padding:16px;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
-  .form-submit:hover{opacity:.9;transform:translateY(-1px)}
-  .form-success{display:none;background:#d1fae5;border:1px solid #6ee7b7;color:#065f46;padding:16px;border-radius:8px;text-align:center;font-weight:600;margin-top:16px}
-  
-  /* FOOTER */
-  footer{background:#0a0a0a;color:rgba(255,255,255,.5);padding:28px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
-  .footer-brand{font-size:.85rem}
-  .footer-brand span{color:#fff;font-weight:600}
-  .footer-right{font-size:.75rem}
-  
-  /* ANIMATIONS */
-  .fade-up{opacity:0;transform:translateY(30px);transition:all .6s ease}
-  .fade-up.visible{opacity:1;transform:translateY(0)}
-  
-  @media(max-width:768px){
-    .about-inner{grid-template-columns:1fr}
-    .form-grid{grid-template-columns:1fr}
-    .trust-inner{gap:16px}
-    footer{flex-direction:column;gap:8px;text-align:center}
-    .contact-form{padding:28px 20px}
-  }
+:root {
+  --p: #ea580c;
+  --d: #1c0a00;
+  --a: #fb923c;
+  --light: #fff7ed;
+  --text: #c2410c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#111;background:#fff;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;transition:.4s}
+nav.up{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);box-shadow:0 1px 30px rgba(0,0,0,.08);padding:14px 6%}
+.logo{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-.5px;transition:.4s}
+nav.up .logo{color:#111}
+.nav-btn{background:var(--p);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.82rem;letter-spacing:.2px;transition:.3s;white-space:nowrap}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px color-mix(in srgb,var(--p) 40%,transparent)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  background:linear-gradient(135deg, #1c0a00 0%, #0a0a0a 50%, #ea580c22 100%)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.3;animation:float 8s ease-in-out infinite}
+.orb1{width:500px;height:500px;background:var(--p);top:-150px;right:-100px;animation-delay:0s}
+.orb2{width:300px;height:300px;background:var(--a);bottom:-100px;left:-80px;animation-delay:-3s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:130px 6% 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.9);padding:7px 16px;border-radius:100px;font-size:.78rem;font-weight:600;margin-bottom:24px;backdrop-filter:blur(10px);letter-spacing:.5px}
+.hero-badge span{width:6px;height:6px;background:var(--a);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-2.5px;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--a)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:36px;max-width:480px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-prim{background:var(--p);color:#fff;padding:15px 30px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.95rem;transition:.3s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:inherit}
+.btn-prim:hover{transform:translateY(-3px);box-shadow:0 15px 40px color-mix(in srgb,var(--p) 50%,transparent)}
+.btn-ghost{background:transparent;color:#fff;padding:15px 28px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.95rem;border:1.5px solid rgba(255,255,255,.3);transition:.3s;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:32px;backdrop-filter:blur(20px)}
+.hero-stat{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{margin:0;padding:0;border:0}
+.stat-num{font-size:2.4rem;font-weight:900;color:#fff;line-height:1}
+.stat-num span{color:var(--a)}
+.stat-label{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:4px;font-weight:500}
+
+/* ── TRUST BAR ── */
+.trust{background:var(--light);border-top:3px solid var(--p);padding:20px 6%}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;gap:0;flex-wrap:wrap}
+.trust-item{flex:1;min-width:150px;display:flex;align-items:center;gap:10px;padding:8px 20px;border-right:1px solid rgba(0,0,0,.08)}
+.trust-item:last-child{border:0}
+.trust-icon{width:36px;height:36px;background:var(--p);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.trust-text strong{display:block;font-size:.85rem;font-weight:700;color:#111}
+.trust-text span{font-size:.75rem;color:#666}
+
+/* ── SERVICES ── */
+.services{padding:100px 6%;background:#fff}
+.section-label{display:inline-flex;align-items:center;gap:8px;background:var(--light);color:var(--text);padding:6px 16px;border-radius:100px;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.section-label::before{content:'';width:8px;height:8px;background:var(--p);border-radius:50%}
+.section-title{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;letter-spacing:-1.5px;color:#0a0a0a;margin-bottom:16px}
+.section-sub{font-size:1rem;color:#666;max-width:500px;line-height:1.7}
+.services-header{max-width:1200px;margin:0 auto 56px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+.services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.scard{background:#fff;border:1.5px solid #f0f0f0;border-radius:20px;padding:36px 32px;transition:.4s;position:relative;overflow:hidden;cursor:default}
+.scard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--p),color-mix(in srgb,var(--p) 60%,var(--d)));opacity:0;transition:.4s;z-index:0}
+.scard:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,.12);border-color:var(--p)}
+.scard:hover::after{opacity:1}
+.scard:hover .scard-num,.scard:hover .scard-title,.scard:hover .scard-text{color:#fff;position:relative;z-index:1}
+.scard:hover .scard-icon{background:rgba(255,255,255,.2);position:relative;z-index:1}
+.scard-icon{width:52px;height:52px;background:var(--light);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;transition:.4s}
+.scard-num{font-size:.75rem;font-weight:800;color:var(--p);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;transition:.3s}
+.scard-title{font-size:1.2rem;font-weight:800;color:#0a0a0a;margin-bottom:10px;letter-spacing:-.3px;transition:.3s}
+.scard-text{font-size:.9rem;color:#666;line-height:1.7;transition:.3s}
+
+/* ── REVIEWS ── */
+.reviews{padding:100px 6%;background:#f8f8f8}
+.reviews-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.rcard{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.05);position:relative;transition:.3s}
+.rcard:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.rcard-quote{font-size:3rem;color:var(--p);line-height:.5;margin-bottom:16px;opacity:.3;font-family:Georgia,serif}
+.rcard-text{font-size:.95rem;color:#444;line-height:1.8;margin-bottom:20px;font-style:italic}
+.rcard-footer{display:flex;align-items:center;gap:12px}
+.rcard-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--p),var(--a));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;flex-shrink:0}
+.rcard-name{font-weight:700;font-size:.9rem;color:#111}
+.rcard-stars{color:#f59e0b;font-size:.8rem}
+
+/* ── PROCESS ── */
+.process{padding:100px 6%;background:#fff}
+.process-grid{max-width:1200px;margin:56px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;position:relative}
+.process-grid::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--p),var(--a));z-index:0}
+.pstep{text-align:center;position:relative;z-index:1}
+.pstep-num{width:72px;height:72px;background:linear-gradient(135deg,var(--p),color-mix(in srgb,var(--p) 70%,var(--a)));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;margin:0 auto 20px;box-shadow:0 10px 30px color-mix(in srgb,var(--p) 40%,transparent);transition:.3s}
+.pstep:hover .pstep-num{transform:scale(1.1) rotate(5deg)}
+.pstep h3{font-size:1rem;font-weight:800;color:#0a0a0a;margin-bottom:8px}
+.pstep p{font-size:.85rem;color:#666;line-height:1.6}
+
+/* ── ABOUT ── */
+.about{padding:100px 6%;background:linear-gradient(135deg,var(--d),#0a0a0a)}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-left .section-label{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.about-left .section-title{color:#fff}
+.about-left .section-sub{color:rgba(255,255,255,.6);max-width:100%}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.astat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;transition:.3s}
+.astat:hover{background:rgba(255,255,255,.1)}
+.astat-n{font-size:2.2rem;font-weight:900;color:var(--a);line-height:1}
+.astat-l{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500}
+.about-right{display:flex;flex-direction:column;gap:20px}
+.about-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px 32px;display:flex;align-items:flex-start;gap:16px;transition:.3s}
+.about-card:hover{background:rgba(255,255,255,.09);transform:translateX(8px)}
+.about-card-icon{width:48px;height:48px;background:var(--p);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.about-card h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:6px}
+.about-card p{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* ── MAP ── */
+.map-section iframe{width:100%;height:420px;border:0;display:block;filter:grayscale(20%)}
+
+/* ── CTA ── */
+.cta{padding:120px 6%;background:linear-gradient(135deg,var(--p) 0%,color-mix(in srgb,var(--p) 70%,var(--a)) 100%);position:relative;overflow:hidden;text-align:center}
+.cta-orb{position:absolute;border-radius:50%;background:rgba(255,255,255,.1);filter:blur(60px)}
+.cta-orb1{width:400px;height:400px;top:-150px;left:-100px}
+.cta-orb2{width:300px;height:300px;bottom:-100px;right:-80px}
+.cta h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:16px;position:relative;z-index:1}
+.cta p{color:rgba(255,255,255,.8);font-size:1.05rem;margin-bottom:40px;position:relative;z-index:1}
+.btn-white{background:#fff;color:var(--p);padding:16px 36px;border-radius:100px;text-decoration:none;font-weight:800;font-size:1rem;transition:.3s;display:inline-flex;align-items:center;gap:8px;position:relative;z-index:1}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+
+/* ── CONTACT ── */
+.contact{padding:100px 6%;background:#f8f8f8}
+.contact-inner{max-width:640px;margin:0 auto}
+.form-card{background:#fff;border-radius:24px;padding:52px;box-shadow:0 8px 60px rgba(0,0,0,.07)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:.78rem;font-weight:700;color:#888;letter-spacing:.8px;text-transform:uppercase}
+.fg input,.fg textarea,.fg select{padding:13px 16px;border:1.5px solid #eee;border-radius:12px;font-size:.95rem;font-family:inherit;color:#111;background:#fff;transition:.3s;outline:none}
+.fg input:focus,.fg textarea:focus{border-color:var(--p);box-shadow:0 0 0 4px color-mix(in srgb,var(--p) 10%,transparent)}
+.fg textarea{min-height:110px;resize:vertical}
+.form-btn{width:100%;background:linear-gradient(135deg,var(--p),color-mix(in srgb,var(--p) 70%,var(--a)));color:#fff;padding:16px;border:none;border-radius:100px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;transition:.3s;letter-spacing:.3px}
+.form-btn:hover{transform:translateY(-2px);box-shadow:0 15px 40px color-mix(in srgb,var(--p) 40%,transparent)}
+.form-ok{display:none;background:#ecfdf5;border:1.5px solid #6ee7b7;color:#065f46;padding:16px;border-radius:12px;text-align:center;font-weight:700;margin-top:16px;font-size:.95rem}
+
+/* ── FOOTER ── */
+footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-l{color:rgba(255,255,255,.4);font-size:.82rem}
+.footer-l strong{color:rgba(255,255,255,.8)}
+.footer-r{color:rgba(255,255,255,.3);font-size:.75rem}
+.footer-r a{color:var(--a);text-decoration:none;font-weight:600}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(40px);transition:.7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:.7s cubic-bezier(.16,1,.3,1)}
+.reveal-left.in{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:.7s cubic-bezier(.16,1,.3,1)}
+.reveal-right.in{opacity:1;transform:translateX(0)}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .hero-card{display:none}
+  .about-inner{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .form-card{padding:32px 24px}
+  footer{flex-direction:column;text-align:center}
+  .process-grid::before{display:none}
+  .trust-item{border-right:none;border-bottom:1px solid rgba(0,0,0,.05)}
+  .services-header{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <div class="nav-logo">⭐ Fowler Painting & Handyman Services</div>
-  <a href="#contact" class="nav-cta">Get Your Free Estimate</a>
+  <div class="logo">🖌️ Fowler Painting & Handyman Services</div>
+  <a href="#contact" class="nav-btn">Get Your Free Estimate</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge">⭐  Rating ·  Google Reviews</div>
-    <h1><span>Meridian's Go-To Painter and Fix-It Pro</span></h1>
-    <p class="hero-sub">Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the drywall patch and ceiling fan install you've been putting off. One call covers both the paintbrush and the toolbox, so you're not juggling two different contractors for one to-do list.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
-      <a href="tel:(601) 621-4202" class="btn-secondary">📞 (601) 621-4202</a>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span></span> Serving Meridian, MS 39301</div>
+      <h1>Meridian's Go-To Painters and Fix-It <em>Pros</em></h1>
+      <p class="hero-sub">Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the leaky faucet you've been putting off fixing. We're a small, hands-on crew that shows up when we say we will and treats your home like it's in our own neighborhood—because it is.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-prim">Get Your Free Estimate →</a>
+        <a href="tel:(601) 621-4202" class="btn-ghost">📞 (601) 621-4202</a>
+      </div>
+    </div>
+    <div class="hero-card reveal-right">
+      <div class="hero-stat"><div class="stat-num">5.0<span>★</span></div><div class="stat-label">Google Rating</div></div>
+      <div class="hero-stat"><div class="stat-num">0<span>+</span></div><div class="stat-label">Happy Customers</div></div>
+      <div class="hero-stat"><div class="stat-num">100<span>%</span></div><div class="stat-label">Satisfaction Guaranteed</div></div>
     </div>
   </div>
 </section>
 
-<div class="trust-bar">
+<!-- TRUST BAR -->
+<div class="trust">
   <div class="trust-inner">
-    <div class="trust-item"><div class="trust-icon">✓</div> Local Business</div>
-    <div class="trust-item"><div class="trust-icon">★</div>  Star Rating</div>
-    <div class="trust-item"><div class="trust-icon">✓</div> + Reviews</div>
-    <div class="trust-item"><div class="trust-icon">✓</div> Free Estimates</div>
+    <div class="trust-item"><div class="trust-icon">⭐</div><div class="trust-text"><strong>5.0 Stars</strong><span>Google Verified</span></div></div>
+    <div class="trust-item"><div class="trust-icon">✅</div><div class="trust-text"><strong>Licensed</strong><span>& Insured</span></div></div>
+    <div class="trust-item"><div class="trust-icon">🏡</div><div class="trust-text"><strong>Local Experts</strong><span>Community Trusted</span></div></div>
+    <div class="trust-item"><div class="trust-icon">💬</div><div class="trust-text"><strong>Free Estimates</strong><span>No Obligation</span></div></div>
   </div>
 </div>
 
+<!-- SERVICES -->
 <section class="services">
-  <div class="section-header">
-    <div class="section-tag">What We Do</div>
-    <h2>Our Services</h2>
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">Everything you need, handled by local professionals who care about quality.</p>
+    </div>
+    <a href="#contact" class="btn-prim">Get Your Free Estimate →</a>
   </div>
   <div class="services-grid">
-<div class="service-card fade-up">
-  <div class="service-num" style="color:#3b82f6">01</div>
-  <h3>[object Object]</h3>
-  <p>Professional service you can count on.</p>
-</div>
-<div class="service-card fade-up">
-  <div class="service-num" style="color:#3b82f6">02</div>
-  <h3>[object Object]</h3>
-  <p>Professional service you can count on.</p>
-</div>
-<div class="service-card fade-up">
-  <div class="service-num" style="color:#3b82f6">03</div>
-  <h3>[object Object]</h3>
-  <p>Professional service you can count on.</p>
-</div></div>
-</section>
-
-
-
-<section class="about">
-  <div class="about-inner">
-    <div class="about-text">
-      <div class="section-tag">About Us</div>
-      <h2>Your Trusted Local Experts</h2>
-      <p>Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the drywall patch and ceiling fan install you've been putting off. One call covers both the paintbrush and the toolbox, so you're not juggling two different contractors for one to-do list.</p>
-      <a href="tel:(601) 621-4202" class="btn-primary" style="display:inline-block;text-decoration:none">Get Your Free Estimate</a>
+    
+    <div class="scard reveal" style="transition-delay:0s">
+      <div class="scard-icon">🔨</div>
+      <div class="scard-num">01</div>
+      <div class="scard-title">Interior & Exterior Painting</div>
+      <div class="scard-text">From Mississippi-summer-proof exterior coats to clean cut-ins around your trim, we prep the surface right so the paint actually lasts.</div>
     </div>
-    <div class="rating-box">
-      <div class="rating-big"></div>
-      <div class="rating-stars">★★★★★</div>
-      <div class="rating-label">Google Rating</div>
-      <div class="rating-count"> reviews</div>
+    <div class="scard reveal" style="transition-delay:0.1s">
+      <div class="scard-icon">🛠️</div>
+      <div class="scard-num">02</div>
+      <div class="scard-title">Home Repairs & Handyman Work</div>
+      <div class="scard-text">Drywall patches, door adjustments, squeaky hinges, and the growing list of small jobs you've been meaning to tackle—done in one visit.</div>
+    </div>
+    <div class="scard reveal" style="transition-delay:0.2s">
+      <div class="scard-icon">⚡</div>
+      <div class="scard-num">03</div>
+      <div class="scard-title">Fixture & Light Carpentry</div>
+      <div class="scard-text">Shelving, trim work, and swapping out light fixtures or ceiling fans handled with the same care as a full repaint.</div>
     </div>
   </div>
 </section>
 
+<!-- PROCESS -->
+<section class="process">
+  <div style="max-width:1200px;margin:0 auto;text-align:center">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="section-title reveal">Simple Process, Great Results</h2>
+  </div>
+  <div class="process-grid">
+    <div class="pstep reveal"><div class="pstep-num">📞</div><h3>Call or Text</h3><p>Reach out and we'll schedule a convenient time for you.</p></div>
+    <div class="pstep reveal" style="transition-delay:.1s"><div class="pstep-num">🔍</div><h3>Free Assessment</h3><p>We evaluate the job and give you an honest, no-surprise quote.</p></div>
+    <div class="pstep reveal" style="transition-delay:.2s"><div class="pstep-num">🔨</div><h3>We Get to Work</h3><p>Our team handles everything — clean, professional, on time.</p></div>
+    <div class="pstep reveal" style="transition-delay:.3s"><div class="pstep-num">✅</div><h3>You're Happy</h3><p>We don't leave until the job meets our standard — and yours.</p></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-left reveal-left">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Why Fowler Painting & Handyman Services?</h2>
+      <p class="section-sub">Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the leaky faucet you've been putting off fixing. We're a small, hands-on crew that shows up when we say we will and treats your home like it's in our own neighborhood—because it is.</p>
+      <div class="about-stats">
+        <div class="astat"><div class="astat-n">5.0★</div><div class="astat-l">Google Rating</div></div>
+        <div class="astat"><div class="astat-n">0+</div><div class="astat-l">Reviews</div></div>
+        <div class="astat"><div class="astat-n">100%</div><div class="astat-l">Satisfaction</div></div>
+        <div class="astat"><div class="astat-n">Local</div><div class="astat-l">Community First</div></div>
+      </div>
+    </div>
+    <div class="about-right reveal-right">
+      <div class="about-card"><div class="about-card-icon">🏆</div><div><h4>Trusted by the Community</h4><p>Hundreds of happy customers in Meridian, MS 39301 have trusted us with their homes and businesses.</p></div></div>
+      <div class="about-card"><div class="about-card-icon">⚡</div><div><h4>Fast Response Time</h4><p>We understand urgency. Most jobs are scheduled within 24–48 hours of your call.</p></div></div>
+      <div class="about-card"><div class="about-card-icon">💯</div><div><h4>Quality Guaranteed</h4><p>We stand behind every job we do. If you're not satisfied, we make it right.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
 
 <section class="map-section">
   <iframe src="https://maps.google.com/maps?q=Meridian%2C%20MS%2039301%2C%20USA&output=embed" allowfullscreen loading="lazy"></iframe>
 </section>
 
-<section class="cta-band">
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-orb cta-orb1"></div>
+  <div class="cta-orb cta-orb2"></div>
   <h2>Ready to Get Started?</h2>
-  <p>Contact us today — MS 39301 locals trust us for a reason.</p>
-  <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
+  <p>Join hundreds of satisfied customers in Meridian, MS 39301. Call us today for a free estimate.</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <a href="#contact" class="btn-white">Get a Free Quote →</a>
+    <a href="tel:(601) 621-4202" class="btn-ghost" style="color:#fff">(601) 621-4202</a>
+  </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="section-header">
-    <div class="section-tag">Get In Touch</div>
-    <h2>Request a Free Quote</h2>
+  <div style="max-width:1200px;margin:0 auto 56px;text-align:center">
+    <div class="section-label reveal">Get In Touch</div>
+    <h2 class="section-title reveal">Request a Free Quote</h2>
+    <p style="color:#666;font-size:1rem" class="reveal">Fill out the form and we'll get back to you within 24 hours.</p>
   </div>
   <div class="contact-inner">
-    <div class="contact-form">
-      <div class="form-grid">
-        <div class="form-group"><label>First Name</label><input type="text" placeholder="John"></div>
-        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+    <div class="form-card reveal">
+      <div class="form-row">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="John"></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
       </div>
-      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="john@email.com"></div>
-      <div class="form-group"><label>Message</label><textarea placeholder="Tell us what you need..."></textarea></div>
-      <button class="form-submit" onclick="this.parentElement.querySelector('.form-success').style.display='block';this.style.display='none'">Get Your Free Estimate</button>
-      <div class="form-success">✅ Thank you! We'll be in touch within 24 hours.</div>
+      <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(555) 000-0000"></div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="john@email.com"></div>
+      <div class="fg"><label>How can we help?</label><textarea placeholder="Describe your project or issue..."></textarea></div>
+      <button class="form-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Get Your Free Estimate</button>
+      <div class="form-ok">✅ Thank you! We'll be in touch within 24 hours.</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-brand">© 2025 <span>Fowler Painting & Handyman Services</span> · Meridian, MS 39301, USA</div>
-  <div class="footer-right">Website by <strong style="color:#fff">WebsiteAI</strong></div>
+  <div class="footer-l">© 2025 <strong>Fowler Painting & Handyman Services</strong> · Meridian, MS 39301, USA</div>
+  <div class="footer-r">Website by <a href="#">WebsiteAI</a></div>
 </footer>
 
 <script>
+// Nav scroll
 window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+  document.getElementById('nav').classList.toggle('up', scrollY > 60);
 });
-const obs = new IntersectionObserver(els => els.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') }), {threshold:.1});
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
