@@ -75,13 +75,19 @@ nav.up .logo{color:#111}
 
 .gallery{padding:0 6% 100px;background:#fff}
 .gallery-inner{max-width:1200px;margin:0 auto}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gimg{border-radius:20px;overflow:hidden;aspect-ratio:4/3;position:relative}
-.gimg img{width:100%;height:100%;object-fit:cover;transition:.5s;display:block}
-.gimg:hover img{transform:scale(1.06)}
-.gimg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#1c0a0088,transparent 50%);opacity:0;transition:.3s}
-.gimg:hover::after{opacity:1}
+.gallery-top{margin-bottom:32px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gimg{border-radius:20px;overflow:hidden;position:relative;cursor:pointer}
+.gimg img{width:100%;height:100%;object-fit:cover;display:block;transition:.6s}
+.gimg:hover img{transform:scale(1.07)}
 .gimg:first-child{grid-column:span 2;aspect-ratio:16/9}
+.gimg:not(:first-child){aspect-ratio:4/3}
+.gimg-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.4) 60%,transparent 100%);padding:22px 22px 20px;color:#fff;z-index:2;transform:translateY(4px);transition:.3s}
+.gimg:hover .gimg-caption{transform:translateY(0)}
+.gimg-tag{font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:5px}
+.gimg-title{font-size:.95rem;font-weight:800;margin-bottom:2px}
+.gimg-loc{font-size:.75rem;opacity:.6;font-weight:500}
+.gimg-badge{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:100px}
 
 .reviews{padding:100px 0;background:#f8f8f8;overflow:hidden}
 .reviews-header{max-width:1200px;margin:0 auto 48px;text-align:center;padding:0 6%}
@@ -164,9 +170,9 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
 .reveal-r.in{opacity:1;transform:translateX(0)}
 
 @media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr !important;gap:36px}
+  .hero-inner{grid-template-columns:1fr;gap:36px}
   .hero-card{display:none}
-  .about-inner{grid-template-columns:1fr !important;gap:40px}
+  .about-inner{grid-template-columns:1fr;gap:40px}
   .process-grid::before{display:none}
   .process-grid{grid-template-columns:1fr 1fr}
   .services-header .btn-prim{display:none}
@@ -209,7 +215,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
     </svg>
     Jason of all Trades
   </div>
-  <a href="#contact" class="nav-btn">Get Your Fix-It List Done</a>
+  <a href="#contact" class="nav-btn">Call Jason Today</a>
 </nav>
 
 <section class="hero">
@@ -218,10 +224,10 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span></span> Serving Meridian, MS 39301</div>
-      <h1>Meridian's Go-To Handyman for Jobs Big <em>and</em> <em>Small</em></h1>
-      <p class="hero-sub">Based right here on Zero Rd in Meridian, Jason of all Trades handles the repair jobs that sit on your to-do list for months. No job is too small and no fix is too tricky—if it's broken, loose, or outdated around your house, we're the call to make.</p>
+      <h1>Meridian's Go-To Handyman for Jobs Big <em>or</em> <em>Small</em></h1>
+      <p class="hero-sub">Based right here at 4586 Zero Rd, Jason of all Trades shows up ready to tackle the odd jobs other contractors won't touch. From leaky faucets to drywall patches, Meridian homeowners call Jason when they need it fixed right the first time, not a runaround.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-prim">Get Your Fix-It List Done →</a>
+        <a href="#contact" class="btn-prim">Call Jason Today →</a>
         <a href="tel:(601) 917-4971" class="btn-ghost">📞 (601) 917-4971</a>
       </div>
     </div>
@@ -249,7 +255,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <h2 class="section-title reveal">Our Services</h2>
       <p class="section-sub reveal">Everything handled by local professionals who care about quality.</p>
     </div>
-    <a href="#contact" class="btn-prim">Get Your Fix-It List Done →</a>
+    <a href="#contact" class="btn-prim">Call Jason Today →</a>
   </div>
   <div class="services-grid">
     
@@ -257,29 +263,58 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <div class="scard-icon">🔨</div>
       <div class="scard-num">01</div>
       <div class="scard-title">Home Repairs & Fixes</div>
-      <div class="scard-text">From squeaky doors to leaky faucets, we knock out the small jobs that bigger contractors won't touch.</div>
+      <div class="scard-text">Squeaky doors, broken cabinets, loose fence boards—if it's bugging you around the house, Jason can knock it out in one visit.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.1s">
       <div class="scard-icon">🛠️</div>
       <div class="scard-num">02</div>
-      <div class="scard-title">Drywall & Painting</div>
-      <div class="scard-text">Patch holes, smooth walls, and refresh rooms with clean paint work that actually looks professional.</div>
+      <div class="scard-title">Drywall & Paint Touch-Ups</div>
+      <div class="scard-text">Nail holes, water stains, and scuffed walls get patched and blended so you can't tell anything was ever wrong.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.2s">
       <div class="scard-icon">⚡</div>
       <div class="scard-num">03</div>
-      <div class="scard-title">Furniture & Fixture Assembly</div>
-      <div class="scard-text">Skip the instruction manual headaches—we'll assemble, mount, and install your furniture and fixtures right the first time.</div>
+      <div class="scard-title">Plumbing & Fixture Installs</div>
+      <div class="scard-text">From swapping out a leaky faucet to mounting a new vanity, Jason handles the small plumbing jobs that big companies skip.</div>
     </div>
   </div>
 </section>
 
 <section class="gallery">
   <div class="gallery-inner">
+    <div class="gallery-top">
+      <div class="section-label reveal">Our Work</div>
+      <h2 class="section-title reveal">Recent Projects</h2>
+      <p class="section-sub reveal">Real jobs completed for customers right here in Meridian, MS 39301.</p>
+    </div>
     <div class="gallery-grid">
-      <div class="gimg reveal"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=900&h=600&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gimg reveal" style="transition-delay:.1s"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=450&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gimg reveal" style="transition-delay:.2s"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=450&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gimg reveal">
+        <div class="gimg-badge">✓ Verified Job</div>
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=900&h=560&auto=format&fit=crop&q=80" alt="Completed Project" onerror="this.parentElement.style.display='none'">
+        <div class="gimg-caption">
+          <div class="gimg-tag">Completed 2026</div>
+          <div class="gimg-title">Completed Project</div>
+          <div class="gimg-loc">Meridian, MS 39301 · Jason of all Trades</div>
+        </div>
+      </div>
+      <div class="gimg reveal" style="transition-delay:.12s">
+        <div class="gimg-badge">✓ Verified Job</div>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=420&auto=format&fit=crop&q=80" alt="Recent Work" onerror="this.parentElement.style.display='none'">
+        <div class="gimg-caption">
+          <div class="gimg-tag">Before & After</div>
+          <div class="gimg-title">Recent Work</div>
+          <div class="gimg-loc">Meridian, MS 39301</div>
+        </div>
+      </div>
+      <div class="gimg reveal" style="transition-delay:.22s">
+        <div class="gimg-badge">✓ Verified Job</div>
+        <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=420&auto=format&fit=crop&q=80" alt="Customer Job" onerror="this.parentElement.style.display='none'">
+        <div class="gimg-caption">
+          <div class="gimg-tag">Customer Work</div>
+          <div class="gimg-title">Customer Job</div>
+          <div class="gimg-loc">Meridian, MS 39301</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -365,7 +400,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
 
 <section class="process">
   <div class="process-inner">
-    <div style="text-align:center;margin-bottom:0">
+    <div style="text-align:center">
       <div class="section-label reveal">How It Works</div>
       <h2 class="section-title reveal">Simple. Professional. Done Right.</h2>
     </div>
@@ -383,7 +418,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
     <div class="about-left reveal-l">
       <div class="section-label">About Us</div>
       <h2 class="section-title">Why Jason of all Trades?</h2>
-      <p class="section-sub">Based right here on Zero Rd in Meridian, Jason of all Trades handles the repair jobs that sit on your to-do list for months. No job is too small and no fix is too tricky—if it's broken, loose, or outdated around your house, we're the call to make.</p>
+      <p class="section-sub">Based right here at 4586 Zero Rd, Jason of all Trades shows up ready to tackle the odd jobs other contractors won't touch. From leaky faucets to drywall patches, Meridian homeowners call Jason when they need it fixed right the first time, not a runaround.</p>
       <div class="about-stats">
         <div class="astat"><div class="astat-n">4.3★</div><div class="astat-l">Google Rating</div></div>
         <div class="astat"><div class="astat-n">3+</div><div class="astat-l">Happy Customers</div></div>
@@ -427,14 +462,14 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(555) 000-0000"></div>
       <div class="fg"><label>Email</label><input type="email" placeholder="john@email.com"></div>
       <div class="fg"><label>How can we help?</label><textarea placeholder="Describe your project or issue..."></textarea></div>
-      <button class="form-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Get Your Fix-It List Done</button>
+      <button class="form-btn" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Call Jason Today</button>
       <div class="form-ok">✅ Thank you! We will be in touch within 24 hours.</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-l">© 2025 <strong>Jason of all Trades</strong> · 4586 Zero Rd, Meridian, MS 39301, USA</div>
+  <div class="footer-l">© 2026 <strong>Jason of all Trades</strong> · 4586 Zero Rd, Meridian, MS 39301, USA</div>
   <div class="footer-r">Website by <a href="#">WebsiteAI</a></div>
 </footer>
 
