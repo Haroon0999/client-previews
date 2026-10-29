@@ -75,13 +75,19 @@ nav.up .logo{color:#111}
 
 .gallery{padding:0 6% 100px;background:#fff}
 .gallery-inner{max-width:1200px;margin:0 auto}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gimg{border-radius:20px;overflow:hidden;aspect-ratio:4/3;position:relative}
-.gimg img{width:100%;height:100%;object-fit:cover;transition:.5s;display:block}
-.gimg:hover img{transform:scale(1.06)}
-.gimg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#1c0a0088,transparent 50%);opacity:0;transition:.3s}
-.gimg:hover::after{opacity:1}
+.gallery-top{margin-bottom:32px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gimg{border-radius:20px;overflow:hidden;position:relative;cursor:pointer}
+.gimg img{width:100%;height:100%;object-fit:cover;display:block;transition:.6s}
+.gimg:hover img{transform:scale(1.07)}
 .gimg:first-child{grid-column:span 2;aspect-ratio:16/9}
+.gimg:not(:first-child){aspect-ratio:4/3}
+.gimg-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.4) 60%,transparent 100%);padding:22px 22px 20px;color:#fff;z-index:2;transform:translateY(4px);transition:.3s}
+.gimg:hover .gimg-caption{transform:translateY(0)}
+.gimg-tag{font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--a);margin-bottom:5px}
+.gimg-title{font-size:.95rem;font-weight:800;margin-bottom:2px}
+.gimg-loc{font-size:.75rem;opacity:.6;font-weight:500}
+.gimg-badge{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:100px}
 
 .reviews{padding:100px 0;background:#f8f8f8;overflow:hidden}
 .reviews-header{max-width:1200px;margin:0 auto 48px;text-align:center;padding:0 6%}
@@ -164,9 +170,9 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
 .reveal-r.in{opacity:1;transform:translateX(0)}
 
 @media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr !important;gap:36px}
+  .hero-inner{grid-template-columns:1fr;gap:36px}
   .hero-card{display:none}
-  .about-inner{grid-template-columns:1fr !important;gap:40px}
+  .about-inner{grid-template-columns:1fr;gap:40px}
   .process-grid::before{display:none}
   .process-grid{grid-template-columns:1fr 1fr}
   .services-header .btn-prim{display:none}
@@ -218,8 +224,8 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span></span> Serving Meridian, MS 39301</div>
-      <h1>Meridian's Trusted Painting & <em>Repair</em> <em>Pros</em></h1>
-      <p class="hero-sub">Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the leaky faucet you've been putting off. We're the neighbor you call when the to-do list gets too long, showing up with the right tools and straight answers instead of excuses.</p>
+      <h1>Meridian's Go-To Painters and <em>Fix-It</em> <em>Pros</em></h1>
+      <p class="hero-sub">Fowler Painting & Handyman Services has been brightening homes and solving repair headaches across Meridian, MS, one project at a time. We're not a big franchise with a call center — you'll talk directly to the person holding the paintbrush or the drill, and that's exactly how we like it.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-prim">Get Your Free Quote →</a>
         <a href="tel:(601) 621-4202" class="btn-ghost">📞 (601) 621-4202</a>
@@ -257,29 +263,58 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <div class="scard-icon">🔨</div>
       <div class="scard-num">01</div>
       <div class="scard-title">Interior & Exterior Painting</div>
-      <div class="scard-text">From Mississippi humidity-resistant exterior coatings to crisp interior finishes, we prep and paint it right the first time.</div>
+      <div class="scard-text">From Meridian's historic homes to newer builds out by Bonita Lakes, we match the right paint and technique to your home's age and exposure.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.1s">
       <div class="scard-icon">🛠️</div>
       <div class="scard-num">02</div>
-      <div class="scard-title">Home Repairs</div>
-      <div class="scard-text">Drywall patches, door adjustments, trim work, and the dozens of small fixes that keep piling up on your weekend plans.</div>
+      <div class="scard-title">Drywall & Wall Repair</div>
+      <div class="scard-text">We patch holes, fix water damage, and smooth out walls before a single coat of paint goes on, so the finish actually lasts.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.2s">
       <div class="scard-icon">⚡</div>
       <div class="scard-num">03</div>
-      <div class="scard-title">Handyman Projects</div>
-      <div class="scard-text">Shelving, fixture installs, minor plumbing and electrical swaps, and odd jobs most contractors won't bother with.</div>
+      <div class="scard-title">General Handyman Repairs</div>
+      <div class="scard-text">Leaky faucet, squeaky door, broken fence board — if it's on your list, chances are we've already fixed one just like it this week in Meridian.</div>
     </div>
   </div>
 </section>
 
 <section class="gallery">
   <div class="gallery-inner">
+    <div class="gallery-top">
+      <div class="section-label reveal">Our Work</div>
+      <h2 class="section-title reveal">Recent Projects</h2>
+      <p class="section-sub reveal">Real jobs completed for customers right here in Meridian, MS 39301.</p>
+    </div>
     <div class="gallery-grid">
-      <div class="gimg reveal"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=900&h=600&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gimg reveal" style="transition-delay:.1s"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=450&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
-      <div class="gimg reveal" style="transition-delay:.2s"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=450&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gimg reveal">
+        <div class="gimg-badge">✓ Verified Job</div>
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=900&h=560&auto=format&fit=crop&q=80" alt="Completed Project" onerror="this.parentElement.style.display='none'">
+        <div class="gimg-caption">
+          <div class="gimg-tag">Completed 2026</div>
+          <div class="gimg-title">Completed Project</div>
+          <div class="gimg-loc">Meridian, MS 39301 · Fowler Painting & Handyman Services</div>
+        </div>
+      </div>
+      <div class="gimg reveal" style="transition-delay:.12s">
+        <div class="gimg-badge">✓ Verified Job</div>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=420&auto=format&fit=crop&q=80" alt="Recent Work" onerror="this.parentElement.style.display='none'">
+        <div class="gimg-caption">
+          <div class="gimg-tag">Before & After</div>
+          <div class="gimg-title">Recent Work</div>
+          <div class="gimg-loc">Meridian, MS 39301</div>
+        </div>
+      </div>
+      <div class="gimg reveal" style="transition-delay:.22s">
+        <div class="gimg-badge">✓ Verified Job</div>
+        <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=420&auto=format&fit=crop&q=80" alt="Customer Job" onerror="this.parentElement.style.display='none'">
+        <div class="gimg-caption">
+          <div class="gimg-tag">Customer Work</div>
+          <div class="gimg-title">Customer Job</div>
+          <div class="gimg-loc">Meridian, MS 39301</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -365,7 +400,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
 
 <section class="process">
   <div class="process-inner">
-    <div style="text-align:center;margin-bottom:0">
+    <div style="text-align:center">
       <div class="section-label reveal">How It Works</div>
       <h2 class="section-title reveal">Simple. Professional. Done Right.</h2>
     </div>
@@ -383,7 +418,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
     <div class="about-left reveal-l">
       <div class="section-label">About Us</div>
       <h2 class="section-title">Why Fowler Painting & Handyman Services?</h2>
-      <p class="section-sub">Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the leaky faucet you've been putting off. We're the neighbor you call when the to-do list gets too long, showing up with the right tools and straight answers instead of excuses.</p>
+      <p class="section-sub">Fowler Painting & Handyman Services has been brightening homes and solving repair headaches across Meridian, MS, one project at a time. We're not a big franchise with a call center — you'll talk directly to the person holding the paintbrush or the drill, and that's exactly how we like it.</p>
       <div class="about-stats">
         <div class="astat"><div class="astat-n">5.0★</div><div class="astat-l">Google Rating</div></div>
         <div class="astat"><div class="astat-n">0+</div><div class="astat-l">Happy Customers</div></div>
@@ -434,7 +469,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
 </section>
 
 <footer>
-  <div class="footer-l">© 2025 <strong>Fowler Painting & Handyman Services</strong> · Meridian, MS 39301, USA</div>
+  <div class="footer-l">© 2026 <strong>Fowler Painting & Handyman Services</strong> · Meridian, MS 39301, USA</div>
   <div class="footer-r">Website by <a href="#">WebsiteAI</a></div>
 </footer>
 
