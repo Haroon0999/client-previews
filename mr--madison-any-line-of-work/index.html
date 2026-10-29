@@ -73,13 +73,15 @@ nav.up .logo{color:#111}
 .scard-title{font-size:1.15rem;font-weight:800;color:#0a0a0a;margin-bottom:10px;letter-spacing:-.3px;transition:.3s}
 .scard-text{font-size:.9rem;color:#666;line-height:1.7;transition:.3s}
 
-.reviews{padding:100px 6%;background:#f8f8f8}
-.reviews-header{max-width:1200px;margin:0 auto 56px;text-align:center}
-.reviews-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.rcard{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.05);transition:.3s}
-.rcard:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
-.rcard-quote{font-size:3rem;color:var(--p);line-height:.5;margin-bottom:16px;opacity:.25;font-family:Georgia,serif}
-.rcard-text{font-size:.95rem;color:#444;line-height:1.8;margin-bottom:20px;font-style:italic}
+.reviews{padding:100px 0;background:#f8f8f8;overflow:hidden}
+.reviews-header{max-width:1200px;margin:0 auto 48px;text-align:center;padding:0 6%}
+.marquee-wrap{width:100%;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:24px;width:max-content;animation:marquee 40s linear infinite;padding:8px 0 16px}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.rcard{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.06);flex:0 0 340px;max-width:340px}
+.rcard-quote{font-size:3rem;color:var(--p);line-height:.5;margin-bottom:16px;opacity:.2;font-family:Georgia,serif}
+.rcard-text{font-size:.92rem;color:#444;line-height:1.8;margin-bottom:20px;font-style:italic}
 .rcard-footer{display:flex;align-items:center;gap:12px}
 .rcard-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--p),var(--a));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;flex-shrink:0}
 .rcard-name{font-weight:700;font-size:.9rem;color:#111}
@@ -179,6 +181,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   .cta-btns{flex-direction:column;align-items:center}
   footer{flex-direction:column;text-align:center}
   .logo svg{width:28px;height:28px}
+  .rcard{flex:0 0 280px;max-width:280px;padding:24px}
 }
 </style>
 </head>
@@ -201,8 +204,8 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span></span> Serving Meridian, MS 39305</div>
-      <h1>Meridian's Go-To Handyman on <em>Grandview</em> <em>Ave</em></h1>
-      <p class="hero-sub">Mr. Madison has been tackling the odd jobs and honey-do lists of Meridian homeowners right from our Grandview Ave shop, handling everything from leaky faucets to drywall patches without the runaround of hiring three different specialists. We show up, we fix it, and we don't leave until the job matches what we promised on the phone.</p>
+      <h1>Meridian's Go-To Fix-It Man on <em>Grandview</em> <em>Ave</em></h1>
+      <p class="hero-sub">Mr. Madison has spent years tackling the odd jobs, honey-do lists, and unexpected repairs that Meridian homeowners don't have time for themselves. Working right out of the Grandview Ave area, he shows up with the right tools and the know-how to handle just about anything you throw at him.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-prim">Call Mr. Madison Today →</a>
         <a href="tel:(601) 701-6068" class="btn-ghost">📞 (601) 701-6068</a>
@@ -240,19 +243,98 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <div class="scard-icon">🔨</div>
       <div class="scard-num">01</div>
       <div class="scard-title">Home Repairs & Fixes</div>
-      <div class="scard-text">From squeaky doors to busted cabinet hinges, we knock out the small repairs that pile up on your to-do list for months.</div>
+      <div class="scard-text">From squeaky doors to leaky faucets, Mr. Madison handles the small jobs that pile up on your to-do list.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.1s">
       <div class="scard-icon">🛠️</div>
       <div class="scard-num">02</div>
-      <div class="scard-title">Drywall & Paint Touch-Ups</div>
-      <div class="scard-text">We patch holes, sand seams, and repaint rooms so the fix blends in instead of standing out.</div>
+      <div class="scard-title">Carpentry & Installations</div>
+      <div class="scard-text">Shelves, trim, fixtures, and furniture assembly get done right the first time, no crooked shelves here.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.2s">
       <div class="scard-icon">⚡</div>
       <div class="scard-num">03</div>
-      <div class="scard-title">Fixture & Hardware Installation</div>
-      <div class="scard-text">Ceiling fans, towel bars, shelving, or new light fixtures—we mount it level and wire it safe the first time.</div>
+      <div class="scard-title">General Maintenance</div>
+      <div class="scard-text">Seasonal upkeep, drywall patches, and anything in between keeps your Meridian home running smoothly year-round.</div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="reviews-header">
+    <div class="section-label reveal">Reviews</div>
+    <h2 class="section-title reveal">What Customers Say</h2>
+    <p style="color:#666;font-size:1rem;margin-top:8px" class="reveal">Rated 4.2 stars across 25 reviews</p>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Outstanding service from start to finish. Showed up on time, did the job right, and the price was exactly as quoted. Could not ask for more.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">D</div>
+          <div>
+            <div class="rcard-name">David Collins</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">I have recommended them to everyone I know. Reliable, professional, and they genuinely care about the quality of their work.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">J</div>
+          <div>
+            <div class="rcard-name">Jennifer Walsh</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Refreshing to find a business that still does things the right way. Honest, skilled, and easy to work with. Will use them again.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">R</div>
+          <div>
+            <div class="rcard-name">Robert Hayes</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Outstanding service from start to finish. Showed up on time, did the job right, and the price was exactly as quoted. Could not ask for more.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">D</div>
+          <div>
+            <div class="rcard-name">David Collins</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">I have recommended them to everyone I know. Reliable, professional, and they genuinely care about the quality of their work.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">J</div>
+          <div>
+            <div class="rcard-name">Jennifer Walsh</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Refreshing to find a business that still does things the right way. Honest, skilled, and easy to work with. Will use them again.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">R</div>
+          <div>
+            <div class="rcard-name">Robert Hayes</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -264,22 +346,20 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <h2 class="section-title reveal">Simple. Professional. Done Right.</h2>
     </div>
     <div class="process-grid">
-      <div class="pstep reveal"><div class="pstep-num">📞</div><h3>Call or Text</h3><p>Reach out and we'll schedule a convenient time for you.</p></div>
+      <div class="pstep reveal"><div class="pstep-num">📞</div><h3>Call or Text</h3><p>Reach out and we will schedule a convenient time for you.</p></div>
       <div class="pstep reveal" style="transition-delay:.1s"><div class="pstep-num">🔍</div><h3>Free Assessment</h3><p>We evaluate the job and give you an honest no-surprise quote.</p></div>
       <div class="pstep reveal" style="transition-delay:.2s"><div class="pstep-num">🔨</div><h3>We Get to Work</h3><p>Our team handles everything, clean, professional, on time.</p></div>
-      <div class="pstep reveal" style="transition-delay:.3s"><div class="pstep-num">✅</div><h3>You're Happy</h3><p>We don't leave until the job meets our standard and yours.</p></div>
+      <div class="pstep reveal" style="transition-delay:.3s"><div class="pstep-num">✅</div><h3>You Are Happy</h3><p>We do not leave until the job meets our standard and yours.</p></div>
     </div>
   </div>
 </section>
-
-
 
 <section class="about">
   <div class="about-inner">
     <div class="about-left reveal-l">
       <div class="section-label">About Us</div>
       <h2 class="section-title">Why Mr. Madison Any Line Of Work?</h2>
-      <p class="section-sub">Mr. Madison has been tackling the odd jobs and honey-do lists of Meridian homeowners right from our Grandview Ave shop, handling everything from leaky faucets to drywall patches without the runaround of hiring three different specialists. We show up, we fix it, and we don't leave until the job matches what we promised on the phone.</p>
+      <p class="section-sub">Mr. Madison has spent years tackling the odd jobs, honey-do lists, and unexpected repairs that Meridian homeowners don't have time for themselves. Working right out of the Grandview Ave area, he shows up with the right tools and the know-how to handle just about anything you throw at him.</p>
       <div class="about-stats">
         <div class="astat"><div class="astat-n">4.2★</div><div class="astat-l">Google Rating</div></div>
         <div class="astat"><div class="astat-n">25+</div><div class="astat-l">Happy Customers</div></div>
