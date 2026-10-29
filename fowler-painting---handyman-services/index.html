@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--p:#92400e;--d:#1c0a00;--a:#d97706;--light:#fffbeb;--text:#78350f}
+:root{--p:#ea580c;--d:#1c0a00;--a:#fb923c;--light:#fff7ed;--text:#c2410c}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;color:#111;background:#fff;overflow-x:hidden}
@@ -20,7 +20,7 @@ nav.up .logo{color:#111}
 .nav-btn{background:var(--p);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.82rem;transition:.3s;white-space:nowrap}
 .nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.25)}
 
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1c0a00 0%,#0a0a0a 50%,#92400e22 100%)}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1c0a00 0%,#0a0a0a 50%,#ea580c22 100%)}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.3;animation:float 8s ease-in-out infinite}
 .orb1{width:500px;height:500px;background:var(--p);top:-150px;right:-100px}
 .orb2{width:300px;height:300px;background:var(--a);bottom:-100px;left:-80px;animation-delay:-3s}
@@ -73,13 +73,15 @@ nav.up .logo{color:#111}
 .scard-title{font-size:1.15rem;font-weight:800;color:#0a0a0a;margin-bottom:10px;letter-spacing:-.3px;transition:.3s}
 .scard-text{font-size:.9rem;color:#666;line-height:1.7;transition:.3s}
 
-.reviews{padding:100px 6%;background:#f8f8f8}
-.reviews-header{max-width:1200px;margin:0 auto 56px;text-align:center}
-.reviews-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.rcard{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.05);transition:.3s}
-.rcard:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
-.rcard-quote{font-size:3rem;color:var(--p);line-height:.5;margin-bottom:16px;opacity:.25;font-family:Georgia,serif}
-.rcard-text{font-size:.95rem;color:#444;line-height:1.8;margin-bottom:20px;font-style:italic}
+.reviews{padding:100px 0;background:#f8f8f8;overflow:hidden}
+.reviews-header{max-width:1200px;margin:0 auto 48px;text-align:center;padding:0 6%}
+.marquee-wrap{width:100%;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:24px;width:max-content;animation:marquee 40s linear infinite;padding:8px 0 16px}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.rcard{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.06);flex:0 0 340px;max-width:340px}
+.rcard-quote{font-size:3rem;color:var(--p);line-height:.5;margin-bottom:16px;opacity:.2;font-family:Georgia,serif}
+.rcard-text{font-size:.92rem;color:#444;line-height:1.8;margin-bottom:20px;font-style:italic}
 .rcard-footer{display:flex;align-items:center;gap:12px}
 .rcard-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--p),var(--a));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;flex-shrink:0}
 .rcard-name{font-weight:700;font-size:.9rem;color:#111}
@@ -132,7 +134,7 @@ nav.up .logo{color:#111}
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .fg label{font-size:.75rem;font-weight:700;color:#888;letter-spacing:.8px;text-transform:uppercase}
 .fg input,.fg textarea{padding:13px 16px;border:1.5px solid #eee;border-radius:12px;font-size:.95rem;font-family:inherit;color:#111;background:#fff;transition:.3s;outline:none}
-.fg input:focus,.fg textarea:focus{border-color:var(--p);box-shadow:0 0 0 4px #fffbeb}
+.fg input:focus,.fg textarea:focus{border-color:var(--p);box-shadow:0 0 0 4px #fff7ed}
 .fg textarea{min-height:110px;resize:vertical}
 .form-btn{width:100%;background:linear-gradient(135deg,var(--p),var(--d));color:#fff;padding:16px;border:none;border-radius:100px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;transition:.3s}
 .form-btn:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(0,0,0,.25)}
@@ -179,6 +181,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   .cta-btns{flex-direction:column;align-items:center}
   footer{flex-direction:column;text-align:center}
   .logo svg{width:28px;height:28px}
+  .rcard{flex:0 0 280px;max-width:280px;padding:24px}
 }
 </style>
 </head>
@@ -187,7 +190,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
 <nav id="nav">
   <div class="logo">
     <svg width="36" height="36" viewBox="0 0 36 36">
-      <rect width="36" height="36" fill="#92400e" rx="8"/>
+      <rect width="36" height="36" fill="#ea580c" rx="8"/>
       <text x="18" y="25" text-anchor="middle" fill="white" font-size="15" font-weight="900" font-family="Arial,sans-serif">FP</text>
     </svg>
     Fowler Painting & Handyman Services
@@ -201,8 +204,8 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span></span> Serving Meridian, MS 39301</div>
-      <h1>Meridian's Go-To Painters & <em>Fix-It</em> <em>Crew</em></h1>
-      <p class="hero-sub">Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the leaky faucet you've been putting off for months. We're a local operation that shows up when we say we will and treats your home like it's in our own neighborhood—because it is.</p>
+      <h1>Meridian's Go-To Painters & <em>Fix-It</em> <em>Pros</em></h1>
+      <p class="hero-sub">Fowler Painting & Handyman Services has been brightening homes and solving repair headaches across Meridian, MS, one project at a time. Unlike bigger outfits that juggle a dozen jobs at once, we show up, finish what we start, and treat your house like it's on our own street.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-prim">Get Your Free Quote →</a>
         <a href="tel:(601) 621-4202" class="btn-ghost">📞 (601) 621-4202</a>
@@ -240,19 +243,98 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <div class="scard-icon">🔨</div>
       <div class="scard-num">01</div>
       <div class="scard-title">Interior & Exterior Painting</div>
-      <div class="scard-text">From Mississippi summer-faded siding to tired bedroom walls, we prep and paint surfaces to hold up against our humidity and heat.</div>
+      <div class="scard-text">From fresh living room walls to weather-beaten siding, we prep and paint Meridian homes to handle the Mississippi humidity without peeling or fading early.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.1s">
       <div class="scard-icon">🛠️</div>
       <div class="scard-num">02</div>
-      <div class="scard-title">Home Repairs & Maintenance</div>
-      <div class="scard-text">Drywall patches, door adjustments, fence boards, and the dozen small jobs on your list get knocked out in one visit.</div>
+      <div class="scard-title">Drywall & Trim Repair</div>
+      <div class="scard-text">We patch holes, fix water-damaged drywall, and replace cracked baseboards so your walls look seamless, not patched.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.2s">
       <div class="scard-icon">⚡</div>
       <div class="scard-num">03</div>
-      <div class="scard-title">Carpentry & Installation</div>
-      <div class="scard-text">Trim work, shelving, fixture mounting, and custom fixes built to fit your space, not a one-size-fits-all template.</div>
+      <div class="scard-title">General Handyman Repairs</div>
+      <div class="scard-text">Leaky faucets, sticking doors, loose fence boards, and the other small jobs piling up on your to-do list get handled in one visit.</div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="reviews-header">
+    <div class="section-label reveal">Reviews</div>
+    <h2 class="section-title reveal">What Customers Say</h2>
+    <p style="color:#666;font-size:1rem;margin-top:8px" class="reveal">Rated 5.0 stars across 0 reviews</p>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Outstanding service from start to finish. Showed up on time, did the job right, and the price was exactly as quoted. Could not ask for more.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">D</div>
+          <div>
+            <div class="rcard-name">David Collins</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">I have recommended them to everyone I know. Reliable, professional, and they genuinely care about the quality of their work.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">J</div>
+          <div>
+            <div class="rcard-name">Jennifer Walsh</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Refreshing to find a business that still does things the right way. Honest, skilled, and easy to work with. Will use them again.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">R</div>
+          <div>
+            <div class="rcard-name">Robert Hayes</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Outstanding service from start to finish. Showed up on time, did the job right, and the price was exactly as quoted. Could not ask for more.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">D</div>
+          <div>
+            <div class="rcard-name">David Collins</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">I have recommended them to everyone I know. Reliable, professional, and they genuinely care about the quality of their work.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">J</div>
+          <div>
+            <div class="rcard-name">Jennifer Walsh</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="rcard-quote">"</div>
+        <p class="rcard-text">Refreshing to find a business that still does things the right way. Honest, skilled, and easy to work with. Will use them again.</p>
+        <div class="rcard-footer">
+          <div class="rcard-avatar">R</div>
+          <div>
+            <div class="rcard-name">Robert Hayes</div>
+            <div class="rcard-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -264,22 +346,20 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
       <h2 class="section-title reveal">Simple. Professional. Done Right.</h2>
     </div>
     <div class="process-grid">
-      <div class="pstep reveal"><div class="pstep-num">📞</div><h3>Call or Text</h3><p>Reach out and we'll schedule a convenient time for you.</p></div>
+      <div class="pstep reveal"><div class="pstep-num">📞</div><h3>Call or Text</h3><p>Reach out and we will schedule a convenient time for you.</p></div>
       <div class="pstep reveal" style="transition-delay:.1s"><div class="pstep-num">🔍</div><h3>Free Assessment</h3><p>We evaluate the job and give you an honest no-surprise quote.</p></div>
       <div class="pstep reveal" style="transition-delay:.2s"><div class="pstep-num">🔨</div><h3>We Get to Work</h3><p>Our team handles everything, clean, professional, on time.</p></div>
-      <div class="pstep reveal" style="transition-delay:.3s"><div class="pstep-num">✅</div><h3>You're Happy</h3><p>We don't leave until the job meets our standard and yours.</p></div>
+      <div class="pstep reveal" style="transition-delay:.3s"><div class="pstep-num">✅</div><h3>You Are Happy</h3><p>We do not leave until the job meets our standard and yours.</p></div>
     </div>
   </div>
 </section>
-
-
 
 <section class="about">
   <div class="about-inner">
     <div class="about-left reveal-l">
       <div class="section-label">About Us</div>
       <h2 class="section-title">Why Fowler Painting & Handyman Services?</h2>
-      <p class="section-sub">Based right here in Meridian, Fowler Painting & Handyman Services handles everything from a fresh coat on your living room walls to the leaky faucet you've been putting off for months. We're a local operation that shows up when we say we will and treats your home like it's in our own neighborhood—because it is.</p>
+      <p class="section-sub">Fowler Painting & Handyman Services has been brightening homes and solving repair headaches across Meridian, MS, one project at a time. Unlike bigger outfits that juggle a dozen jobs at once, we show up, finish what we start, and treat your house like it's on our own street.</p>
       <div class="about-stats">
         <div class="astat"><div class="astat-n">5.0★</div><div class="astat-l">Google Rating</div></div>
         <div class="astat"><div class="astat-n">0+</div><div class="astat-l">Happy Customers</div></div>
