@@ -20,8 +20,8 @@ nav.up .logo{color:#111}
 .nav-btn{background:var(--p);color:#fff;padding:10px 22px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.82rem;transition:.3s;white-space:nowrap}
 .nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.25)}
 
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1c0a00 0%,#0a0a0a 50%,#92400e22 100%)}
-.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.3;animation:float 8s ease-in-out infinite}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1c0a00f0 0%,#1c0a0099 60%,#92400e44 100%),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&h=900&auto=format&fit=crop&q=80') center/cover no-repeat}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.2;animation:float 8s ease-in-out infinite}
 .orb1{width:500px;height:500px;background:var(--p);top:-150px;right:-100px}
 .orb2{width:300px;height:300px;background:var(--a);bottom:-100px;left:-80px;animation-delay:-3s}
 @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
@@ -31,13 +31,13 @@ nav.up .logo{color:#111}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .hero h1{font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
 .hero h1 em{font-style:normal;color:var(--a)}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:36px;max-width:480px}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:36px;max-width:480px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 .btn-prim{background:var(--p);color:#fff;padding:15px 28px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.95rem;transition:.3s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:inherit}
 .btn-prim:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.3)}
-.btn-ghost{background:transparent;color:#fff;padding:15px 26px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.95rem;border:1.5px solid rgba(255,255,255,.3);transition:.3s;display:inline-flex;align-items:center;gap:8px}
-.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
-.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:32px;backdrop-filter:blur(20px)}
+.btn-ghost{background:transparent;color:#fff;padding:15px 26px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.95rem;border:1.5px solid rgba(255,255,255,.4);transition:.3s;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7)}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:32px;backdrop-filter:blur(20px)}
 .hero-stat{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
 .hero-stat:last-child{margin:0;padding:0;border:0}
 .stat-num{font-size:2.4rem;font-weight:900;color:#fff;line-height:1}
@@ -72,6 +72,16 @@ nav.up .logo{color:#111}
 .scard-num{font-size:.75rem;font-weight:800;color:var(--p);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;transition:.3s}
 .scard-title{font-size:1.15rem;font-weight:800;color:#0a0a0a;margin-bottom:10px;letter-spacing:-.3px;transition:.3s}
 .scard-text{font-size:.9rem;color:#666;line-height:1.7;transition:.3s}
+
+.gallery{padding:0 6% 100px;background:#fff}
+.gallery-inner{max-width:1200px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gimg{border-radius:20px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.gimg img{width:100%;height:100%;object-fit:cover;transition:.5s;display:block}
+.gimg:hover img{transform:scale(1.06)}
+.gimg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#1c0a0088,transparent 50%);opacity:0;transition:.3s}
+.gimg:hover::after{opacity:1}
+.gimg:first-child{grid-column:span 2;aspect-ratio:16/9}
 
 .reviews{padding:100px 0;background:#f8f8f8;overflow:hidden}
 .reviews-header{max-width:1200px;margin:0 auto 48px;text-align:center;padding:0 6%}
@@ -160,6 +170,8 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   .process-grid::before{display:none}
   .process-grid{grid-template-columns:1fr 1fr}
   .services-header .btn-prim{display:none}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gimg:first-child{grid-column:span 2}
 }
 @media(max-width:600px){
   nav{padding:14px 5%}
@@ -170,7 +182,9 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   .hero-actions{flex-direction:column}
   .btn-prim,.btn-ghost,.btn-white{padding:13px 22px;font-size:.9rem;justify-content:center;text-align:center}
   .services,.reviews,.process,.about,.contact{padding:70px 5%}
-  .services-grid,.reviews-grid{grid-template-columns:1fr}
+  .gallery{padding:0 5% 70px}
+  .gallery-grid{grid-template-columns:1fr}
+  .gimg:first-child{grid-column:span 1;aspect-ratio:4/3}
   .process-grid{grid-template-columns:1fr}
   .trust-inner{flex-direction:column}
   .trust-item{border-right:none;border-bottom:1px solid rgba(0,0,0,.06);padding:12px 16px}
@@ -204,8 +218,8 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span></span> Serving Meridian, MS 39305</div>
-      <h1>Meridian's Go-To Fix-It Man on <em>Grandview</em> <em>Ave</em></h1>
-      <p class="hero-sub">Mr. Madison has spent years tackling the odd jobs, honey-do lists, and unexpected repairs that Meridian homeowners don't have time for themselves. Working right out of the Grandview Ave area, he shows up with the right tools and the know-how to handle just about anything you throw at him.</p>
+      <h1>Meridian's Go-To Fix-It Man Since <em>Day</em> <em>One</em></h1>
+      <p class="hero-sub">Mr. Madison has been the name Grandview Ave neighbors call when something breaks, sags, leaks, or just needs doing right. Based right here in Meridian, he handles the jobs too small for contractors and too big to tackle alone, no job list too random.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-prim">Call Mr. Madison Today →</a>
         <a href="tel:(601) 701-6068" class="btn-ghost">📞 (601) 701-6068</a>
@@ -242,20 +256,30 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
     <div class="scard reveal" style="transition-delay:0s">
       <div class="scard-icon">🔨</div>
       <div class="scard-num">01</div>
-      <div class="scard-title">Home Repairs & Fixes</div>
-      <div class="scard-text">From squeaky doors to leaky faucets, Mr. Madison handles the small jobs that pile up on your to-do list.</div>
+      <div class="scard-title">Honey-Do List Completion</div>
+      <div class="scard-text">Hand Mr. Madison your running list of small repairs and watch it disappear in one visit instead of ten weekends.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.1s">
       <div class="scard-icon">🛠️</div>
       <div class="scard-num">02</div>
-      <div class="scard-title">Carpentry & Installations</div>
-      <div class="scard-text">Shelves, trim, fixtures, and furniture assembly get done right the first time, no crooked shelves here.</div>
+      <div class="scard-title">Drywall & Trim Repair</div>
+      <div class="scard-text">From doorknob holes to crooked baseboards, patch and paint work gets matched seamlessly to your existing walls.</div>
     </div>
     <div class="scard reveal" style="transition-delay:0.2s">
       <div class="scard-icon">⚡</div>
       <div class="scard-num">03</div>
-      <div class="scard-title">General Maintenance</div>
-      <div class="scard-text">Seasonal upkeep, drywall patches, and anything in between keeps your Meridian home running smoothly year-round.</div>
+      <div class="scard-title">Fixture & Hardware Installation</div>
+      <div class="scard-text">Ceiling fans, door locks, shelving, and towel bars get mounted secure and level the first time around.</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-grid">
+      <div class="gimg reveal"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=900&h=600&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gimg reveal" style="transition-delay:.1s"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=450&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
+      <div class="gimg reveal" style="transition-delay:.2s"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=450&auto=format&fit=crop&q=80" alt="Our work" onerror="this.parentElement.style.display='none'"></div>
     </div>
   </div>
 </section>
@@ -359,7 +383,7 @@ footer{background:#0a0a0a;padding:32px 6%;display:flex;justify-content:space-bet
     <div class="about-left reveal-l">
       <div class="section-label">About Us</div>
       <h2 class="section-title">Why Mr. Madison Any Line Of Work?</h2>
-      <p class="section-sub">Mr. Madison has spent years tackling the odd jobs, honey-do lists, and unexpected repairs that Meridian homeowners don't have time for themselves. Working right out of the Grandview Ave area, he shows up with the right tools and the know-how to handle just about anything you throw at him.</p>
+      <p class="section-sub">Mr. Madison has been the name Grandview Ave neighbors call when something breaks, sags, leaks, or just needs doing right. Based right here in Meridian, he handles the jobs too small for contractors and too big to tackle alone, no job list too random.</p>
       <div class="about-stats">
         <div class="astat"><div class="astat-n">4.2★</div><div class="astat-l">Google Rating</div></div>
         <div class="astat"><div class="astat-n">25+</div><div class="astat-l">Happy Customers</div></div>
